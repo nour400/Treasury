@@ -1,0 +1,295 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-09-25 19:24:15.609010",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "payment_type",
+  "treasury",
+  "company",
+  "naming_series",
+  "column_break_mzur",
+  "amended_from",
+  "posting_date",
+  "payment_way",
+  "section_break_bwvc",
+  "column_break_pqee",
+  "is_party_based_entry",
+  "section_break_suwy",
+  "treasury_item",
+  "total_does_not_include_tax",
+  "notes",
+  "paymentreceive_tofrom_section",
+  "party_type",
+  "party",
+  "party_name",
+  "column_break_frsj",
+  "bank_account",
+  "party_bank_account",
+  "email",
+  "account_section",
+  "party_balance",
+  "paid_from",
+  "paid_from_account_currency",
+  "paid_from_account_balance",
+  "column_break_bhfx",
+  "paid_to",
+  "paid_to_account_currency",
+  "paid_to_account_balance",
+  "amount_section",
+  "paid_amount",
+  "referance_section",
+  "get_outstanding_invoice",
+  "payment_references"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "Receive\nPay"
+  },
+  {
+   "fieldname": "treasury",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Treasury",
+   "options": "Treasury",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mzur",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "payment_way",
+   "fieldtype": "Link",
+   "label": "Payment Way",
+   "options": "Mode of Payment"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "ACC-SAFE-.YYYY.-"
+  },
+  {
+   "fieldname": "section_break_bwvc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_party_based_entry",
+   "fieldtype": "Check",
+   "label": "Is Party Based Entry"
+  },
+  {
+   "fieldname": "treasury_item",
+   "fieldtype": "Table",
+   "label": "Treasury Item",
+   "options": "Treasury Item"
+  },
+  {
+   "depends_on": "eval:doc.is_party_based_entry;",
+   "fieldname": "column_break_pqee",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Treasury Window",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "total_does_not_include_tax",
+   "fieldtype": "Currency",
+   "label": "Total does not include tax",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:!doc.is_party_based_entry;",
+   "fieldname": "section_break_suwy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.is_party_based_entry;",
+   "fieldname": "paymentreceive_tofrom_section",
+   "fieldtype": "Section Break",
+   "label": "Payment/Receive, To/From"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name"
+  },
+  {
+   "fieldname": "column_break_frsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "party_bank_account",
+   "fieldtype": "Link",
+   "label": "Party Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.is_party_based_entry;",
+   "fieldname": "account_section",
+   "fieldtype": "Section Break",
+   "label": "Account",
+   "read_only_depends_on": "eval:doc.is_party_based_entry;"
+  },
+  {
+   "fieldname": "paid_to",
+   "fieldtype": "Link",
+   "label": "Paid To",
+   "options": "Account"
+  },
+  {
+   "fieldname": "paid_to_account_currency",
+   "fieldtype": "Link",
+   "label": "Paid To Account Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_bhfx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_to_account_balance",
+   "fieldtype": "Currency",
+   "label": "Paid To Account Balance"
+  },
+  {
+   "depends_on": "eval:doc.is_party_based_entry;",
+   "fieldname": "amount_section",
+   "fieldtype": "Section Break",
+   "label": "Amount",
+   "options": "eval:doc.is_party_based_entry;"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount"
+  },
+  {
+   "depends_on": "eval:(doc.party)",
+   "fieldname": "referance_section",
+   "fieldtype": "Section Break",
+   "label": "Referance"
+  },
+  {
+   "fieldname": "get_outstanding_invoice",
+   "fieldtype": "Button",
+   "label": "Get Outstanding Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_references",
+   "fieldtype": "Table",
+   "label": "Payment References",
+   "options": "Payment Entry Reference"
+  },
+  {
+   "fieldname": "paid_from_account_currency",
+   "fieldtype": "Link",
+   "label": "Account Currency (From)",
+   "options": "Currency"
+  },
+  {
+   "fetch_from": "treasury.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Company"
+  },
+  {
+   "fieldname": "paid_from_account_balance",
+   "fieldtype": "Currency",
+   "label": "Account Balance (From)"
+  },
+  {
+   "fieldname": "party_balance",
+   "fieldtype": "Currency",
+   "label": "Party Balance"
+  },
+  {
+   "fieldname": "paid_from",
+   "fieldtype": "Link",
+   "label": "Account Paid From",
+   "options": "Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-26 20:32:32.249037",
+ "modified_by": "Administrator",
+ "module": "financial_treasury_gspa",
+ "name": "Treasury Window",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

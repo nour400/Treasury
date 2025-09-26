@@ -1,7 +1,7 @@
 app_name = "financial_treasury_gspa"
-app_title = "financial_treasury_gspa"
-app_publisher = "nour boubes"
-app_description = "financial_treasury_gspa"
+app_title = "Financial Treasury Gspa"
+app_publisher = "Nour Boubes"
+app_description = "Unification of payment and collection of money"
 app_email = "nourboubes@gmail.com"
 app_license = "mit"
 # required_apps = []
