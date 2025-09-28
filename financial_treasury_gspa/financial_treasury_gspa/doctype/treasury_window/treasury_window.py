@@ -106,7 +106,7 @@ class TreasuryWindow(Document):
 
 
 @frappe.whitelist()
-def get_account_name(treasury, payment_type):
+def get_account_name(payment_type,treasury=None):
 
 	try:
 		treasury_doc = frappe.get_doc("Treasury", treasury)

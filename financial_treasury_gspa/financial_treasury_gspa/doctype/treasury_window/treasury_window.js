@@ -57,8 +57,8 @@ frappe.ui.form.on("Treasury Window", {
             frappe.call({
                 method: 'financial_treasury_gspa.financial_treasury_gspa.doctype.treasury_window.treasury_window.get_account_name',
                 args: {
-                    treasury: frm.doc.treasury,
-                    payment_type: frm.doc.payment_type
+                    payment_type: frm.doc.payment_type,
+                    treasury: frm.doc.treasury
                 },
                 callback: function(r) {
                     console.log("getting accounts",r.message)
@@ -82,8 +82,8 @@ frappe.ui.form.on("Treasury Window", {
             frappe.call({
                 method: 'financial_treasury_gspa.financial_treasury_gspa.doctype.treasury_window.treasury_window.get_account_name',
                 args: {
-                    treasury: frm.doc.treasury,
-                    payment_type: frm.doc.payment_type
+                    payment_type: frm.doc.payment_type,
+                    treasury: frm.doc.treasury
                 },
                 callback: function(r) {
                     console.log("getting accounts",r.message)
@@ -98,7 +98,8 @@ frappe.ui.form.on("Treasury Window", {
 
 
     party: function(frm) {
-        if(frm.doc.party != ''|| frm.doc.party != null){
+        if(frm.doc.party || !frm.doc.party.trim() === ''){
+
             return frappe.call({
                 method: "erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details",
                 args: {
@@ -150,8 +151,8 @@ frappe.ui.form.on("Treasury Window", {
             frappe.call({
                 method: 'financial_treasury_gspa.financial_treasury_gspa.doctype.treasury_window.treasury_window.get_account_name',
                 args: {
-                    treasury: frm.doc.treasury,
-                    payment_type: frm.doc.payment_type
+                    payment_type: frm.doc.payment_type,
+                    treasury: frm.doc.treasury
                 },
                 callback: function(r) {
                     console.log("getting accounts",r.message)
@@ -165,8 +166,8 @@ frappe.ui.form.on("Treasury Window", {
             frappe.call({
                 method: 'financial_treasury_gspa.financial_treasury_gspa.doctype.treasury_window.treasury_window.get_account_name',
                 args: {
-                    treasury: frm.doc.treasury,
-                    payment_type: frm.doc.payment_type
+                    payment_type: frm.doc.payment_type,
+                    treasury: frm.doc.treasury
                 },
                 callback: function(r) {
                     console.log("getting accounts",r.message)
